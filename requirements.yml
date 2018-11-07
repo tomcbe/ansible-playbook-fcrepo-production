@@ -1,0 +1,16 @@
+---
+# Put roles needed for the playbook here:
+# 
+# - src: "https://github.com/path/to/git/repo"
+#   version: "master"
+#   name: "rolename"#
+#
+# Download required roles with the following command:
+# ansible-galaxy install -f -p roles/ -r requirements.yml
+
+- name: geerlingguy.java
+  version: master
+
+- src: "https://github.com/grycap/ansible-role-tomcat"
+  name: grycap-tomcat
+  version: master
