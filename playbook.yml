@@ -1,9 +1,11 @@
 ---
 - name: provision local ansible machine
   hosts: 127.0.0.1
-  ansible_user: vagrant
   become: yes
   become_method: sudo
+
+  vars:
+    ansible_user: vagrant
 
   pre_tasks:
     - name: test
