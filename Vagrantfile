@@ -19,15 +19,20 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   shared_dir = "/vagrant"
 	
- 
-  Vagrant.configure("2") do |config|
-    # Run Ansible from the Vagrant VM
-    config.vm.provision "shell",
-      inline: "apt-get install ansible"
-	  
-    config.vm.provision "ansible_local" do |ansible|
-      ansible.playbook = "playbook.yml"
-    end
+  # Run Ansible from the Vagrant VM
+  config.vm.provision "shell",
+    inline: "apt-get update"
+  config.vm.provision "shell",
+    inline: "apt-get install software-properties-common"
+  config.vm.provision "shell",
+    inline: "apt-add-repository --yes --update ppa:ansible/ansible"
+  config.vm.provision "shell",
+    inline: "apt-get install -y ansible"
+  config.vm.provision "shell",
+    inline: "cd /vagrant && ansible-galaxy install -f -p roles/ -r requirements.yml"
+
+  config.vm.provision "ansible_local" do |ansible|
+    ansible.playbook = "/vagrant/playbook.yml"
   end
   
 end
