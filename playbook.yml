@@ -1,17 +1,13 @@
 ---
 - name: provision local ansible machine
-  hosts: 127.0.0.1
+  hosts: all
   become: yes
   become_method: sudo
 
   vars:
     ansible_user: vagrant
 
-  pre_tasks:
-    - name: test
-      command: echo "Hello"
-
-      #  roles:
-      #    - geerlingguy.java
-      #    - grycap-tomcat
+  roles:
+    - geerlingguy.java
+    - grycap-tomcat
 
