@@ -28,10 +28,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     inline: "apt-add-repository --yes --update ppa:ansible/ansible"
   config.vm.provision "shell",
     inline: "apt-get install -y ansible"
-  config.vm.provision "shell",
-    inline: "cd /vagrant && ansible-galaxy install -f -p roles/ -r requirements.yml"
+  # config.vm.provision "shell",
+  #  inline: "cd /vagrant && ansible-galaxy install -f -p roles/ -r requirements.yml"
 
   config.vm.provision "ansible_local" do |ansible|
+    ansible.compatibility_mode = "2.0"
+    ansible.galaxy_role_file = "requirements.yml"
+    ansible.galaxy_roles_path = "./roles"
     ansible.playbook = "/vagrant/playbook.yml"
   end
   
