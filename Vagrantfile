@@ -8,7 +8,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	
   config.vm.hostname = "fedora4"
 
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "ubuntu/xenial64"
   config.vm.box_version = "0.1.4"
 
   config.vm.network :forwarded_port, guest: 8080, host: 8080 # Tomcat
