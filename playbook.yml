@@ -10,4 +10,5 @@
   roles:
     - geerlingguy.java
     - grycap-tomcat
+    - fcrepo
 
