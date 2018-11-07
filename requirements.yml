@@ -14,3 +14,8 @@
 - src: "https://github.com/grycap/ansible-role-tomcat"
   name: grycap-tomcat
   version: master
+
+
+- src: "https://github.com/kamrhein/ansible-role-fcrepo"
+  name: fcrepo
+  version: master
