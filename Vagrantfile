@@ -18,5 +18,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   shared_dir = "/vagrant"
-  
+	
+ 
+  Vagrant.configure("2") do |config|
+    # Run Ansible from the Vagrant VM
+    config.vm.provision "shell",
+      inline: "apt-get install ansible"
+	  
+    config.vm.provision "ansible_local" do |ansible|
+      ansible.playbook = "playbook.yml"
+    end
   end
+  
+end
