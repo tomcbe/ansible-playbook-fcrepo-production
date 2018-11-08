@@ -15,6 +15,10 @@
       - name: fcrepo
     mysql_users:
       - { name: fcrepo, password: top_secret }
+    # TODO:
+    # - create correct tomcat-users (role fedoraAdmin, role manager-gui)
+    # - fix permissions for mysql user fcrepo
+    # - add fcrepo data directory
 
   roles:
     - role: geerlingguy.java
