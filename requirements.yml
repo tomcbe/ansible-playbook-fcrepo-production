@@ -11,11 +11,14 @@
 - name: geerlingguy.java
   version: master
 
-- src: "https://github.com/grycap/ansible-role-tomcat"
-  name: grycap-tomcat
+# - src: "https://github.com/grycap/ansible-role-tomcat"
+#   name: grycap-tomcat
+#   version: master
+
+- src: "https://github.com/tomcbe/ansible-role-tomcat8"
+  name: tomcbe.tomcat8
   version: master
 
-
 - src: "https://github.com/kamrhein/ansible-role-fcrepo"
-  name: fcrepo
+  name: kamrhein.fcrepo
   version: master

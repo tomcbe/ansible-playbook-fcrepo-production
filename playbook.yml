@@ -1,14 +1,15 @@
 ---
-- name: provision local ansible machine
+- name: provision vagrant machine
   hosts: all
   become: yes
   become_method: sudo
 
   vars:
     ansible_user: vagrant
+    tomcat8_catalina_opts: "-server -Dfile.encoding=UTF-8 -Dtomcat8.home={{ tomcat8_home }} -Dtomcat8.modeshape.configuration=classpath:/config/file-simple/repository.json -Dlogback.configurationFile={{ tomcat8_config_dir }}/logback.xml -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:ConcGCThreads=5 -XX:MaxGCPauseMillis=200 -XX:ParallelGCThreads=20 -XX:MaxMetaspaceSize=512M -Xms{{ tomcat8_minimum_heap_size }} -Xmx{{ tomcat8_maximum_heap_size }}"
 
   roles:
-    - geerlingguy.java
-    - grycap-tomcat
-    - fcrepo
+    - role: geerlingguy.java
+    - role: tomcbe.tomcat8
+    - role: kamrhein.fcrepo
 
