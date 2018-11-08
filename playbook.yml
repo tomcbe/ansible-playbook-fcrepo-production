@@ -6,7 +6,10 @@
 
   vars:
     ansible_user: vagrant
-    tomcat8_catalina_opts: "-server -Dfile.encoding=UTF-8 -Dtomcat8.home={{ tomcat8_home }} -Dtomcat8.modeshape.configuration=classpath:/config/file-simple/repository.json -Dlogback.configurationFile={{ tomcat8_config_dir }}/logback.xml -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:ConcGCThreads=5 -XX:MaxGCPauseMillis=200 -XX:ParallelGCThreads=20 -XX:MaxMetaspaceSize=512M -Xms{{ tomcat8_minimum_heap_size }} -Xmx{{ tomcat8_maximum_heap_size }}"
+    fcrepo_config_dir: /etc/fcrepo
+    tomcat8_minimum_heap_size: 1024m
+    tomcat8_maximum_heap_size: 2048m
+    tomcat8_catalina_opts: "-server -Dfile.encoding=UTF-8 -Dtomcat8.modeshape.configuration=classpath:/config/file-simple/repository.json -Dlogback.configurationFile={{ fcrepo_config_dir }}/logback.xml -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:ConcGCThreads=5 -XX:MaxGCPauseMillis=200 -XX:ParallelGCThreads=20 -XX:MaxMetaspaceSize=512M -Xms{{ tomcat8_minimum_heap_size }} -Xmx{{ tomcat8_maximum_heap_size }}"
 
   roles:
     - role: geerlingguy.java
