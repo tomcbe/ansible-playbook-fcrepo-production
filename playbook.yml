@@ -14,8 +14,7 @@
     mysql_databases: 
       - name: fcrepo
     mysql_users:
-      - name: fcrepo
-      - password: top_secret
+      - { name: fcrepo, password: top_secret }
 
   roles:
     - role: geerlingguy.java
