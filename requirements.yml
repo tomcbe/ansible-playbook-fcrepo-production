@@ -18,6 +18,10 @@
 - src: "https://github.com/tomcbe/ansible-role-tomcat8"
   name: tomcbe.tomcat8
   version: master
+  
+- src: https://github.com/geerlingguy/ansible-role-mysql
+  name: geerlingguy.mysql
+  version: master
 
 - src: "https://github.com/kamrhein/ansible-role-fcrepo"
   name: kamrhein.fcrepo
